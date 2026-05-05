@@ -1,0 +1,23 @@
+{
+  "name": "conflito-2026-api",
+  "version": "1.0.0",
+  "description": "Backend API for Conflito 2026: Resistência Infinita - FPS Mobile Game",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "seed": "node src/seed.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": ["game", "fps", "mobile", "api"],
+  "author": "Conflito 2026 Team",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.2",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.20.0"
+  }
+}
