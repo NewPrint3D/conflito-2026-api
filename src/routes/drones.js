@@ -6,9 +6,9 @@ const { pool } = require('../db');
 router.get('/', async (req, res) => {
   try {
     const result = await pool.query(
-      `SELECT model_id, model_name, drone_class, max_speed_kmh, max_range_meters, base_damage, battery_life_seconds, base_item_id
+      `SELECT model_id, name as model_name, class as drone_class, max_speed_kmh, signal_range_meters as max_range_meters, explosive_yield_kg as base_damage, battery_life_seconds, base_item_id
        FROM drone_models 
-       ORDER BY drone_class`
+       ORDER BY class`
     );
     res.json(result.rows);
   } catch (error) {
