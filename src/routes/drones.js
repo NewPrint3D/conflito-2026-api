@@ -2,6 +2,20 @@ const express = require('express');
 const router = express.Router();
 const { pool } = require('../db');
 
+// GET all drones (root)
+router.get('/', async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT model_id, model_name, drone_class, max_speed_kmh, max_range_meters, base_damage, battery_life_seconds, base_item_id
+       FROM drone_models 
+       ORDER BY drone_class`
+    );
+    res.json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // GET all drone models
 router.get('/models', async (req, res) => {
   try {
